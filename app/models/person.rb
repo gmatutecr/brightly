@@ -6,4 +6,5 @@ class Person < ApplicationRecord
   validates :gender, presence: true, numericality: { only_integer: true }, inclusion: [0,1,2,9]
   
   has_one_attached :picture
+  belongs_to :company 
 end
