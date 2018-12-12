@@ -5,7 +5,7 @@ Welcome, to Brightly with this system you will be able to manage people, compani
 ## Why Brightly?
 
 Naming things can be hard, so for this project I used a random word generator and picked the 
-first word that I liked. So I dub you Brigthly!
+first word that I liked. So I dub you Brightly!
 
 Things you may want to cover:
 
