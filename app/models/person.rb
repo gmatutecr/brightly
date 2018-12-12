@@ -4,4 +4,6 @@ class Person < ApplicationRecord
   validates :email, presence: true, length: { maximum: 254 }, uniqueness: true
   validates :job, length: { maximum: 75 }, allow_blank: true
   validates :gender, presence: true, numericality: { only_integer: true }, inclusion: [0,1,2,9]
+  
+  belongs_to :company 
 end
