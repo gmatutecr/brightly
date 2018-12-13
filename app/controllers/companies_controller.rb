@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = company.new(company_params)
+    @company = Company.new(company_params)
 
     respond_to do |format|
       if @company.save
@@ -56,7 +56,7 @@ class CompaniesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def company_params
-    params.require(:company).permit(:name, :location)
+    params.require(:company).permit(:name, :business_description, :location)
   
   end
 end
