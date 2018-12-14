@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 2018_12_13_022844) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "buildings_companies", id: false, force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "building_id", null: false
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "business_description"

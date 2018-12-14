@@ -27,8 +27,8 @@
       <%= form.text_field :location %>
     </div>
 
- 
-  
+    <%= form.collection_select :building_ids, Building.all, :id, :name, {},{:multiple => true} %>
+
     <div class="actions">
       <%= form.submit %>
     </div>
