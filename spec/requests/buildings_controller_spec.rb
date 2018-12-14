@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "building#show", :type => :request do
-    it "displays the welcome message" do    
+    it "displays the building profile" do    
       building = create(:building)
       visit building_path(building.id)
 

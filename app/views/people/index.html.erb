@@ -21,7 +21,7 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= image_tag person.picture.variant(resize: "100 x100") if !person.picture.nil? %></td>
+        <td><%= image_tag person.picture.variant(resize: "100 x100") if person.picture.attached? %></td>
         <td><%= link_to person.first_name, person_path(person) %></td>
         <td><%= person.last_name %></td>
         <td><%= person.email %></td>
