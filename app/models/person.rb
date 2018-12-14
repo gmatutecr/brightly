@@ -11,7 +11,7 @@ class Person < ApplicationRecord
   has_one_attached :picture
 
   def birthday_is_not_in_the_future
-    if birthdate > Date.today
+    if !birthdate.nil? && birthdate > Date.today 
       errors.add(:birthdate, "cannot be in the future")
     end
   end    

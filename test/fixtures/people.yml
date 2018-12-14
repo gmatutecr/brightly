@@ -4,8 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+<% 1000.times do |n| %>
+person_<%= n %>:
+  first_name: <%= "name#{n}" %>
+  last_name: <%= "lastname#{n}" %>
+  email: <%= "email#{n}@example.com" %>
+  job: <%= "job#{n}" %>
+  bio: <%= "bio#{n}" %>
+  gender: "0"
+  birthdate: "12/12/1986"
+<% end %>
