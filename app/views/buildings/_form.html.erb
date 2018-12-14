@@ -1,29 +1,34 @@
 <%= form_with(model: building, local: true) do |form| %>
     <% if building.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
-  
-        <ul>
+      <div class="alert alert-info" role="alert">
+        <%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+      </div>
+        
         <% building.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <div class="alert alert-danger" role="alert">
+            <%= message %>
+          </div>
         <% end %>
-        </ul>
+      
       </div>
     <% end %>
   
-    <div class="field">
+    <div class="form-group">
       <%= form.label :name %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :location %>
-      <%= form.text_field :location %>
+      <%= form.text_field :location, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :companies %>
+      <%= form.collection_select :company_ids, Company.all, :id, :name, {},{:multiple => true, class: "form-control"} %>
     </div>
 
-    <%= form.collection_select :company_ids, Company.all, :id, :name, {},{:multiple => true} %>
-  
-    <div class="actions">
-      <%= form.submit %>
+    <div class="form-group">
+       <%= form.submit class: "btn btn-primary" %>
     </div>
   <% end %>

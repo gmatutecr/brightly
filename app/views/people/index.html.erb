@@ -2,9 +2,10 @@
 
 <h1>People</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
+      <th>Picture</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
@@ -20,12 +21,13 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
+        <td><%= image_tag person.picture.variant(resize: "100 x100") if !person.picture.nil? %></td>
         <td><%= person.first_name %></td>
         <td><%= person.last_name %></td>
         <td><%= person.email %></td>
         <td><%= person.job %></td>
         <td><%= person.bio %></td>
-        <td><%= person.gender %></td>
+        <td><%= display_gender(person.gender) %></td>
         <td><%= person.birthdate %></td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>

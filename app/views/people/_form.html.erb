@@ -1,56 +1,70 @@
 <%= form_with(model: person, local: true) do |form| %>
     <% if person.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+        
+        <div class="alert alert-info" role="alert">
+        <%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:
+        </div>
   
-        <ul>
+        
         <% person.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <div class="alert alert-danger" role="alert">
+            <%= message %>
+          </div>
         <% end %>
-        </ul>
+      
       </div>
     <% end %>
   
-    <div class="form-group">
+   <div class="form-row">
+    <div class="form-group col-md-6">
       <%= form.label :first_name %>
       <%= form.text_field :first_name, class: "form-control" %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <%= form.label :last_name %>
       <%= form.text_field :last_name, class: "form-control" %>
     </div>
+  </div>
   
-
-    <div class="form-group">
+  <div class="form-row">
+    <div class="form-group col-md-6">
       <%= form.label :email %>
       <%= form.text_field :email, class: "form-control" %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <%= form.label :job %>
       <%= form.text_field :job, class: "form-control" %>
     </div>
+  </div>
 
     <div class="form-group">
       <%= form.label :bio %>
-      <%= form.text_field :bio %>
+      <%= form.text_area :bio, class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= form.label :gender %>
-      <%= form.text_field :gender %>
+      <%= select(:person, :gender, options_for_select([['Not Known', 0],['Male',1],['Female', 2],['Not applicable',9]]),:selected => person.gender ) %>
     </div>
 
     <div class="form-group">
       <%= form.label :birthdate %>
-      <%= form.text_field :birthdate %>
+     
+      <%= form.date_field :birthdate %>
     </div>
 
-    <%= form.file_field :picture, class: "form-control-file" %>
+    <div class="form-group">
+      <%= form.file_field :picture, class: "form-control-file" %>
+    </div>
 
-    <%= form.collection_select :company_id, Company.all, :id, :name %>
+    <div class="form-group">
+      <%= form.label :company %>
+      <%= form.collection_select :company_id, Company.all, :id, :name, {},{class: "form-control"} %>
+    </div>
 
-      <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-primary" %>
     
   <% end %>

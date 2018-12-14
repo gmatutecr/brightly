@@ -1,9 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @building.name %>
-</p>
-
-<%= link_to 'Edit', edit_building_path(@building) %> |
+<div class="card">
+ <div class="card-header">
+ Building Profile
+ <%= link_to 'Edit', edit_building_path(@building) %> |
 <%= link_to 'Back', buildings_path %>
+
+ </div>
+
+ <h5 class="card-title"><%= @building.name %></h5>
+
+<%= @building.location %>
+
+<% @building.companies.each do |c| %>
+
+<p><%= c.name %>
+<% end %>
+
+
+</div>

@@ -1,33 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success" role="alert"><%= notice %> </div>
 
-<p>
-  <strong>first Name:</strong>
-  <%= @person.first_name %>
-</p>
 
-<p>
-  <strong>lastname:</strong>
-  <%= @person.last_name %>
-</p>
+<div class="card">
+ <div class="card-header">
+    Profile <%= link_to 'Edit', edit_person_path(@person) %> |
+    <%= link_to 'Back', people_path %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @person.first_name %> <%= @person.last_name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @person.email %></h6> 
 
-<p>
-  <strong>email:</strong>
-  <%= @person.email %>
-</p>
+    <div class="row">
+    <div class="col-md-6">
+       <%= image_tag @person.picture.variant(resize: "400 x400") %>
+    </div>
 
-<p>
-  <strong>bio:</strong>
-  <%= @person.bio %>
-</p>
+      <div class="col-md-6">
+         <p>
+           <strong>bio:</strong>
+           <%= @person.bio %>
+        </p>
+        <p>
+         <strong>job:</strong>
+         <%= @person.job %>
+        </p>
 
-<p>
-  <strong>job:</strong>
-  <%= @person.job %>
-</p>
-
-<p>
+        <p>
   <strong>gender:</strong>
-  <%= @person.gender %>
+  <%= display_gender(@person.gender) %>
 </p>
 
 <p>
@@ -35,7 +35,21 @@
   <%= @person.birthdate %>
 </p>
 
-<%= image_tag @person.picture %>
+      </div>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', companies_path %>
+    </div>
+  </div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
