@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   def index
-    @people = Person.all
+    @people = Person.order("first_name desc").all
   end
 
   def create
@@ -20,7 +20,6 @@ class PeopleController < ApplicationController
   
   def new 
     @person = Person.new
-    #@person.build_company
   end
 
   def edit

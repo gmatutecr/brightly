@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   def index
-    @companies = Company.all
+    @companies = Company.order("name desc").all
   end
 
   def create

@@ -67,3 +67,5 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "mini_magick"
 gem 'image_processing', '~> 1.2'
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'

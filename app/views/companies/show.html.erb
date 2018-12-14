@@ -1,26 +1,24 @@
 <div class="alert alert-success" role="alert"><%= notice %> </div>
-<div class="card">
- <div class="card-header">
-  
-  Company Profile
-  <%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
-</div>
-<h5 class="card-title"><%= @company.name %></h5>
+  <div class="card">
+  <div class="card-header">
+    Company Profile
+    <%= link_to 'Edit', edit_company_path(@company) %> |
+    <%= link_to 'Back', companies_path %>
+  </div>
+  <h5 class="card-title"><%= @company.name %></h5>
 
-<p>
-  <strong>Business Description:</strong>
-  <%= @company.business_description %>
-</p>
+  <p>
+    <strong>Business Description:</strong>
+    <%= @company.business_description %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @company.location %>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @company.location %>
+  </p>
+  Buildings in which this company is:
+  <% @company.buildings.each do |b| %>
 
-<% @company.buildings.each do |b| %>
-
-<p><%= b.name %>
-<% end %>
-
+  <p><%= b.name %>
+  <% end %>
 </div>
