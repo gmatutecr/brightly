@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-
+    
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'person was successfully created.' }
@@ -20,6 +20,7 @@ class PeopleController < ApplicationController
   
   def new 
     @person = Person.new
+    #@person.build_company
   end
 
   def edit
@@ -56,7 +57,16 @@ class PeopleController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :email, :job, :bio, :gender, :birthdate, :picture)
+    params.require(:person).permit(:first_name,
+                                   :last_name,
+                                   :email, 
+                                   :job,
+                                   :bio, 
+                                   :gender, 
+                                   :birthdate, 
+                                   :picture, 
+                                   :company_id,
+                                   company_attributes: [:id, :name, :location, :business_description])
   
   end
 end

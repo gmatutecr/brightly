@@ -5,6 +5,8 @@ class Person < ApplicationRecord
   validates :job, length: { maximum: 75 }, allow_blank: true
   validates :gender, presence: true, numericality: { only_integer: true }, inclusion: [0,1,2,9]
   
-  has_one_attached :picture
+  has_one_attached :picture 
+  
   belongs_to :company 
+  accepts_nested_attributes_for :company
 end
