@@ -25,4 +25,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Gender format selection
+I decided to use the ISO/IEC 5218 standard [See it wikipedia](https://en.wikipedia.org/wiki/ISO/IEC_5218)
+..* 0 = not known,
+..* 1 = male,
+..* 2 = female,
+..* 9 = not applicable
