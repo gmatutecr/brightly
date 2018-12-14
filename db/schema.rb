@@ -40,12 +40,24 @@ ActiveRecord::Schema.define(version: 2018_12_13_022844) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "buildings_companies", id: false, force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "building_id", null: false
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "business_description"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "companies_buildings", id: false, force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "building_id"
+    t.index ["building_id"], name: "index_companies_buildings_on_building_id"
+    t.index ["company_id"], name: "index_companies_buildings_on_company_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -58,6 +70,8 @@ ActiveRecord::Schema.define(version: 2018_12_13_022844) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_people_on_company_id"
   end
 
 end

@@ -20,6 +20,8 @@
       <%= form.label :location %>
       <%= form.text_field :location %>
     </div>
+
+    <%= form.collection_select :company_ids, Company.all, :id, :name, {},{:multiple => true} %>
   
     <div class="actions">
       <%= form.submit %>
