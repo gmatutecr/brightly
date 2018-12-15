@@ -1,41 +1,45 @@
-<%= form_with(model: company, local: true) do |form| %>
-    <% if company.errors.any? %>
-      <div id="error_explanation">
-      <div class="alert alert-info" role="alert">
-        <%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
-      </div>
-        
-        <% company.errors.full_messages.each do |message| %>
-          <div class="alert alert-danger" role="alert">
-            <%= message %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= form_with(model: company, local: true) do |form| %>
+        <% if company.errors.any? %>
+          <div id="error_explanation">
+          <div class="alert alert-info" role="alert">
+            <%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+          </div>
+            
+            <% company.errors.full_messages.each do |message| %>
+              <div class="alert alert-danger" role="alert">
+                <%= message %>
+              </div>
+            <% end %>
+            
           </div>
         <% end %>
-        
-      </div>
-    <% end %>
-  
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control" %>
-    </div>
+      
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :business_description %>
-      <%= form.text_field :business_description, class: "form-control" %>
-    </div>
-  
+        <div class="form-group">
+          <%= form.label :business_description %>
+          <%= form.text_field :business_description, class: "form-control" %>
+        </div>
+      
 
-    <div class="form-group">
-      <%= form.label :location %>
-      <%= form.text_field :location, class: "form-control" %>
-    </div>
+        <div class="form-group">
+          <%= form.label :location %>
+          <%= form.text_field :location, class: "form-control" %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :buildings %>
-      <%= form.collection_select :building_ids, Building.all, :id, :name, {},{:multiple => true, class: "form-control"} %>
-    </div>
+        <div class="form-group">
+          <%= form.label :buildings %>
+          <%= form.collection_select :building_ids, Building.all, :id, :name, {},{:multiple => true, class: "form-control"} %>
+        </div>
 
-    <div class="form-group">
-      <%= form.submit class: "btn btn-primary"%>
-    </div>
-  <% end %>
+        <div class="form-group">
+          <%= form.submit class: "btn btn-primary"%>
+        </div>
+      <% end %>
+  </div>
+</div>
