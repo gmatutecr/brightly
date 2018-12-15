@@ -7,6 +7,10 @@ RSpec.describe "building#show", :type => :request do
 
       expect(page).to have_content(building.name)
       expect(page).to have_content(building.location)
+      expect(page).to have_content("Companies in this building")
+      expect(page).to have_content("Edit")
+      expect(page).to have_content("Cancel")
+      expect(page).to have_content("Delete")
     end
 end
 

@@ -7,6 +7,10 @@ RSpec.describe "companies#show", :type => :request do
 
       expect(page).to have_content(company.name)
       expect(page).to have_content(company.business_description)
+      expect(page).to have_content("This company is also in these buildings")
+      expect(page).to have_content("Edit")
+      expect(page).to have_content("Cancel")
+      expect(page).to have_content("Delete")
     end
 end
 
