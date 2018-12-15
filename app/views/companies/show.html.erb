@@ -1,24 +1,20 @@
-<div class="alert alert-success" role="alert"><%= notice %> </div>
-  <div class="card">
-  <div class="card-header">
-    Company Profile
-    <%= link_to 'Edit', edit_company_path(@company) %> |
-    <%= link_to 'Back', companies_path %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        Business Profile
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Name: <%= @company.name %></h5>
+        <p class="card-text">Business Description: <%= @company.business_description %>.</p>
+        <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-outline-success" %> 
+      </div>
+      <div class="card-footer text-muted">
+        Record Creation <%= @company.created_at %>
+        <%= link_to 'Delete', @company, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+      </div>
+    </div>
   </div>
-  <h5 class="card-title"><%= @company.name %></h5>
-
-  <p>
-    <strong>Business Description:</strong>
-    <%= @company.business_description %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= @company.location %>
-  </p>
-  Buildings in which this company is:
-  <% @company.buildings.each do |b| %>
-
-  <p><%= b.name %>
-  <% end %>
 </div>

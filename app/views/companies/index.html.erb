@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>companies</h1>
+<%= link_to 'New company', new_company_path %>
 
 <table class="table">
   <thead class="thead-dark">
@@ -14,14 +15,8 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.name, company_path(company) %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= company.business_description %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New company', new_company_path %>

@@ -8,5 +8,5 @@
 <% 100.times do |n| %>
 <%= n %>:
   name: <%= "name#{n}" %>
-  business_description: <%= "building_location#{n}" %>
+  business_description: <%= "business_description#{n}" %>
 <% end %>

@@ -1,47 +1,30 @@
-<div class="alert alert-success" role="alert"><%= notice %> </div>
-
-
-<div class="card">
- <div class="card-header">
-    Profile <%= link_to 'Edit', edit_person_path(@person) %> |
-    <%= link_to 'Back', people_path %>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= @person.first_name %> <%= @person.last_name %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= @person.email %></h6> 
-
-    <div class="row">
-    <div class="col-md-6">
-       <%= image_tag @person.picture.variant(resize: "400 x400") if @person.picture.attached? %>
-    </div>
-
-      <div class="col-md-6">
-         <p>
-           <strong>bio:</strong>
-           <%= @person.bio %>
-        </p>
-        <p>
-         <strong>job:</strong>
-         <%= @person.job %>
-        </p>
-
-        <p>
-  <strong>gender:</strong>
-  <%= display_gender(@person.gender) %>
-</p>
-
-<p>
-  <strong>birthdate:</strong>
-  <%= @person.birthdate %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @person.company.name %>
-</p>
-
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        Person Profile
       </div>
-
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <%= image_tag @person.picture.variant(resize: "400 x400") if @person.picture.attached? %>
+          </div>
+          <div class="col-sm-6">
+            <h5 class="card-title">Name: <%= @person.first_name %> <%= @person.last_name %></h5>
+            <p class="card-text">Email: <%= @person.email %></p>
+            <p class="card-text">Job: <%= @person.job %></p>
+            <p class="card-text">Bio: <%= @person.bio %></p>
+            <p class="card-text">Gender: <%= display_gender(@person.gender) %></p>
+            <p class="card-text">Birthdate: <%= @person.birthdate %></p>
+            <p class="card-text">Company: <%= link_to @person.company.name, company_path(@person.company) if !@person.company.nil?%></p>
+            <%= link_to 'Edit', edit_person_path(@person), class: "btn btn-outline-success" %>
+          </div>
+      </div>
+      <div class="card-footer text-muted">
+        Record Creation <%= @person.created_at %>
+        <%= link_to 'Delete', @person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+      </div>
     </div>
   </div>
 </div>

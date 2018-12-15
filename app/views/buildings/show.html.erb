@@ -1,21 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card">
- <div class="card-header">
- Building Profile
- <%= link_to 'Edit', edit_building_path(@building) %> |
-<%= link_to 'Back', buildings_path %>
-
- </div>
-
- <h5 class="card-title"><%= @building.name %></h5>
-
-<%= @building.location %>
-
-<% @building.companies.each do |c| %>
-
-<p><%= c.name %>
-<% end %>
-
-
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+    <div class="card-header">
+        Building Profile
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Name: <%= @building.name %></h5>
+        <p class="card-text">Location: <%= @building.location %>.</p>
+        <%= link_to 'Edit', edit_building_path(@building), class: "btn btn-outline-success" %> 
+    </div>
+    <div class="card-footer text-muted">
+        Record Creation <%= @building.created_at %>
+        <%= link_to 'Delete', @building, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+    </div>
+    </div>
+  </div>
 </div>
