@@ -19,6 +19,7 @@
             <p class="card-text">Birthdate: <%= @person.birthdate %></p>
             <p class="card-text">Company: <%= link_to @person.company.name, company_path(@person.company) if !@person.company.nil?%></p>
             <%= link_to 'Edit', edit_person_path(@person), class: "btn btn-outline-success" %>
+            <%= link_to 'Cancel', people_path, class: "btn btn-outline-danger" %>
           </div>
       </div>
       <div class="card-footer text-muted">

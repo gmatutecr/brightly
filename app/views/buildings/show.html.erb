@@ -10,6 +10,7 @@
         <h5 class="card-title">Name: <%= @building.name %></h5>
         <p class="card-text">Location: <%= @building.location %>.</p>
         <%= link_to 'Edit', edit_building_path(@building), class: "btn btn-outline-success" %> 
+        <%= link_to 'Cancel', buildings_path, class: "btn btn-outline-danger" %>
     </div>
     <div class="card-footer text-muted">
         Record Creation <%= @building.created_at %>

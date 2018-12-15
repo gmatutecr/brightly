@@ -66,8 +66,9 @@
             <%= form.label :company %>
             <%= form.collection_select :company_id, Company.all, :id, :name, {},{class: "form-control"} %>
           </div>
-
-          <%= form.submit class: "btn btn-primary" %>
+          <div class="form-group">
+            <%= form.submit class: "btn btn-primary" %>
+          </div>
           
         <% end %>
    </div>
