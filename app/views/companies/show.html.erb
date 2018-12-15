@@ -9,8 +9,14 @@
       <div class="card-body">
         <h5 class="card-title">Name: <%= @company.name %></h5>
         <p class="card-text">Business Description: <%= @company.business_description %>.</p>
-        <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-outline-success" %> 
-        <%= link_to 'Cancel', companies_path, class: "btn btn-outline-danger" %>      
+        <div class="row">
+           <div class="col-md-12"> 
+              <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-outline-success" %> 
+              <%= link_to 'Cancel', companies_path, class: "btn btn-outline-danger" %>      
+          </div>
+        </div>
+        <br/>
+        <%= render 'buildings', buildings: @company.buildings %>      
       </div>
       <div class="card-footer text-muted">
         Record Creation <%= @company.created_at %>

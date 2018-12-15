@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-12">
+        <p>This company is also in these buildings</p>
+        <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th>Name</th>
+            <th>Location</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% buildings.each do |building| %>
+            <tr>
+                <td><%= link_to building.name, building_path(building) %></td>
+                <td><%= building.location %></td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+</div>
